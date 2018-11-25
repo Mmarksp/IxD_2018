@@ -1,7 +1,7 @@
 var question;
-var sz = 30;
-var arrow;
-var booton1 = false; //Til ja-knap.
+var sz = 30; //Tekststørrelse
+var arrow; //billede. Også en funktion til at placere billederne.
+var booton1 = false; //Til ja-knap. Det er to boolean value, som samlet set sørger for, at ved interaktion (ja/nej) vil responsen kun køre én gang; det forhindrer programmet i hele tiden at "tegne over" sådan at sige, fordi det ellers vil køre i ring.
 var booton2 = false; //Til nej-knap
 
 var names = ["Jawad","Mohamed","Ali","Abiel","Ana","Sofus","William","Isabella"]; //Det er måske her hvor problemet er? Isabella har erstattet de andre?
@@ -13,43 +13,42 @@ function preload() {
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  question = new Question(questionText[0], width/2, height/2, sz)
+  question = new Question(questionText[0], width/2, height/2, sz) //Hvert Question er sit eget objekt med specificeret svar fra vores survey
   angleMode(DEGREES);
   textAlign(CENTER);
+  background(255, 204, 153);
+  question.display();
+  arrows();
 }
 
 function draw() {
-  background(255, 204, 153);
-  push();
-  question.display();
-  arrows();
 
-  if (keyIsPressed) { //booton1 = true
-    pop();
+  if (booton1 === true) {
     background(255, 204, 153);
     textSize(sz);
-    text("Det har du tilfælles med "+question.yes[floor(random(question.yes.length))]+".", width/2, height*0.33);
+    text("Det har du tilfælles med "+question.yes[floor(random(question.yes.length))]+".", width/2, height*0.33); //kringlet funktion, men den udvælger en tilfældig respondent fra question-objektet.
     text("Kom til MadMekka ved Ungdomskulturhuset og find ud af", width/2, height*0.66);
     text("hvad du mere har tilfælles med andre unge i Aarhus", width/2, height*0.77);
-    booton1 = false;
+    booton1 = false; //Ved at skifte boolean fra "true" til "false" undgår vi at programmet tegner over sig selv igen og igen. Det skal kun ske én gang pr. tryk på knap.
+  } else if (booton2 === true) {
+    background(255, 204, 153);
+    textSize(sz);
+    text("Det har du tilfælles med "+question.no[floor(random(question.no.length))]+".", width/2, height*0.33);
+    text("Kom til MadMekka ved Ungdomskulturhuset og find ud af", width/2, height*0.66);
+    text("hvad du mere har tilfælles med andre unge i Aarhus", width/2, height*0.77);
+    booton2 = false;
   }
-  //   else if (booton2 != booton2) {
-  //   pop();
-  //   textSize(sz);
-  //   text("Det har du tilfælles med "+question.no[random(question.no)]".", width/2, height*0.33);
-  //   text("Kom til MadMekka ved Ungdomskulturhuset og find ud af hvad du mere har tilfælles med andre unge i Aarhus", width/2, height*0.66, sz);
-  //   delay(10000);
-  //   question = new Question(questionText[random(questionText)], width/2, height/2, sz);
-  //   draw();
-  // }
 }
 
-function mousePressed() {
+function mousePressed() { //Basically, udvælg et nyt spørgsmål og start forfra
   question = new Question(questionText[floor(random(questionText.length))], width/2, height/2, sz);
-  draw();
+
+  background(255, 204, 153);
+  question.display(); //Har puttet det op i setup for at det kun k'rer EN gang
+  arrows();
 }
 
-function arrows() {
+function arrows() { //Hard code af billedplacering. Urgh.
   push();
   translate(width*0.33, height-100);
   rotate(90);
@@ -62,6 +61,13 @@ function arrows() {
   pop();
 }
 
-function buttons() {
-  
+function keyPressed() { //I tilfælde af ingen Arduino kan vi køre det med tastaturet. Vi skal bare have en interaktion til at skifte boolean fra "false" til "true"
+  if (keyCode === 75) { //K
+    booton1 = true;
+    console.log("yup");
+  } else if (keyCode === 76) {  //L
+    booton2 = true;
+    console.log("nope");
+  }
+  return false;
 }

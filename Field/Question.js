@@ -4,7 +4,7 @@ class Question {
     this.pos = new createVector(x, y);
     this.textSz = textSz;
 
-    this.yes = [];
+    this.yes = []; //To arrays to henholdsvis ja-svar og nej-svar. De bliver så udfyldt ud fra det specifikke spørgsmål som det kan ses nedenunder
     this.no = [];
   }
 //DEN DISPLAYER KUN EN ENKELT STRING VED [0], to strings ovenpaa hinanden ved [1]. DEN VISER DESUDEN OGSAA KUN SIDSTE INDSLAG I ARRAY
@@ -50,7 +50,7 @@ class Question {
   }
 
   buttonPressed() {
-    
+
   }
 
 }
