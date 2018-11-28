@@ -14,8 +14,8 @@ class Question {
     text(this.text, this.pos.x, this.pos.y); //Maske er deet noget her, Her bliver den rendered
 
     if (this.text = questionText[0]) {  //Kan du bedst lide hårdkogte æg?
-      this.yes = [names[0]+" og "+names[7],names[1]+" og "+names[6],names[2]+" og "+names[5],names[3]+" og "+names[3],names[4]+" og "+names[1],names[5]+" og "+names[2],names[6]+" og "+names[3],names[0]+" og "+names[5],names[0]+" og "+names[6],names[1]+" og "+names[4],names[2]+" og "+names[4]];
-      this.no = [names[3]+" og "+names[4],names[5]+" og "+names[2],names[2]+" og "+names[7],names[1]+" og "+names[4],names[0]+" og "+names[4],names[0]+" og "+names[7],names[3]+" og "+names[5],names[0]+" og "+names[5],names[1]+" og "+names[5],names[2]+" og "+names[6],names[1]+" og "+names[7]];
+      this.yes = [names[0]+" og "+names[7],names[1]+" og "+names[6],names[2]+" og "+names[5],names[3]+" og "+names[4],names[4]+" og "+names[1],names[5]+" og "+names[2],names[6]+" og "+names[3],names[0]+" og "+names[5],names[0]+" og "+names[6],names[1]+" og "+names[4],names[2]+" og "+names[4],names[0]+" og "+names[4],names[1]+" og "+names[5],names[3]+" og "+names[5]];
+      this.no = [names[3]+" og "+names[4],names[5]+" og "+names[2],names[2]+" og "+names[7],names[1]+" og "+names[4],names[0]+" og "+names[4],names[0]+" og "+names[7],names[3]+" og "+names[5],names[0]+" og "+names[5],names[1]+" og "+names[5],names[2]+" og "+names[6],names[1]+" og "+names[7],names[1]+" og "+names[6],names[4]+" og "+names[2],names[0]+" og "+names[6]];
     // } else if(this.text = questionText[1]) {  //Kan du bedst lide blødkogte æg?
     //   this.yes = [names[5],names[6],names[7]];
     //   this.no = [names[0],names[1],names[2],names[3],names[4]];

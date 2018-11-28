@@ -22,7 +22,7 @@ function setup() {
   textAlign(CENTER);
   background(bg);
   question.display();
-  arrows();
+  // arrows();
   textFont(myFont);
 }
 
@@ -55,24 +55,24 @@ function mousePressed() { //Basically, udvælg et nyt spørgsmål og start forfr
   arrows();
 }
 
-function arrows() { //Hard code af billedplacering. Urgh.
-  push();
-  translate(width*0.33, height-100);
-  //rotate(90);
-  image(arrow, 0, 0, 80, 80);
-  pop();
-  push();
-  translate(width*0.66, height-100);
-  //rotate(90);
-  image(arrow, 0, 0, 80, 80);
-  pop();
-}
+// function arrows() { //Hard code af billedplacering. Urgh.
+//   push();
+//   translate(width*0.33, height-100);
+//   //rotate(90);
+//   image(arrow, 0, 0, 80, 80);
+//   pop();
+//   push();
+//   translate(width*0.66, height-100);
+//   //rotate(90);
+//   image(arrow, 0, 0, 80, 80);
+//   pop();
+// }
 
 function keyPressed() { //I tilfælde af ingen Arduino kan vi køre det med tastaturet. Vi skal bare have en interaktion til at skifte boolean fra "false" til "true"
-  if (keyCode === 75) { //K
+  if (keyCode === LEFT_ARROW) { //K
     booton1 = true;
     console.log("yup");
-  } else if (keyCode === 76) {  //L
+  } else if (keyCode === RIGHT_ARROW) {  //L
     booton2 = true;
     console.log("nope");
   }
